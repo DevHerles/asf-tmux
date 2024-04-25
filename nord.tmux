@@ -21,6 +21,7 @@ __cleanup() {
   tmux set-environment -gu NORD_TMUX_STATUS_DATE_FORMAT
   tmux set-environment -gu NORD_CYAN
   tmux set-environment -gu ASF_CL
+  tmux set-environment -gu ASF_BACKGROUND
 }
 
 __load() {
@@ -43,11 +44,13 @@ __load() {
   fi
 
   if [ -e $HOME/.notgui ]; then
-    tmux set-environment -g NORD_CYAN "red"
+    tmux set-environment -g NORD_CYAN "#A3BE8C"
     tmux set-environment -g ASF_CL "PCM"
+    tmux set-environment -g ASF_BACKGROUND "#88C0D0"
   else
     tmux set-environment -g NORD_CYAN "cyan"
     tmux set-environment -g ASF_CL "HerlesINC"
+    tmux set-environment -g ASF_BACKGROUND "blue"
   fi
 
   if [ "$status_content" != "0" ]; then
