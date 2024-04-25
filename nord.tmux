@@ -19,6 +19,8 @@ __cleanup() {
   unset -f __load __cleanup
   tmux set-environment -gu NORD_TMUX_STATUS_TIME_FORMAT
   tmux set-environment -gu NORD_TMUX_STATUS_DATE_FORMAT
+  tmux set-environment -gu NORD_CYAN
+  tmux set-environment -gu ASF_CL
 }
 
 __load() {
@@ -38,6 +40,14 @@ __load() {
     tmux set-environment -g NORD_TMUX_STATUS_DATE_FORMAT "%Y-%m-%d"
   else
     tmux set-environment -g NORD_TMUX_STATUS_DATE_FORMAT "$date_format"
+  fi
+
+  if [ -e $HOME/.notgui ]; then
+    tmux set-environment -g NORD_CYAN "red"
+    tmux set-environment -g ASF_CL "PCM"
+  else
+    tmux set-environment -g NORD_CYAN "cyan"
+    tmux set-environment -g ASF_CL "HerlesINC"
   fi
 
   if [ "$status_content" != "0" ]; then
