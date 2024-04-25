@@ -44,7 +44,7 @@ __load() {
   fi
 
   if [ -e $HOME/.notgui ]; then
-    tmux set-environment -g NORD_CYAN "#A3BE8C"
+    tmux set-environment -g NORD_CYAN "#EA8891"
     tmux set-environment -g ASF_CL "PCM"
     tmux set-environment -g ASF_BACKGROUND "#88C0D0"
   else
