@@ -44,8 +44,12 @@ __load() {
   fi
 
   if [ -e $HOME/.notgui ]; then
+    VPN=$(sed -n 's/^vpn=//p' "$HOME/.notgui")
+    if [ -z "$VPN" ]; then
+        VPN="NOT VPN NAME SET"
+    fi
     tmux set-environment -g NORD_CYAN "#EA8891"
-    tmux set-environment -g ASF_CL "PCM"
+    tmux set-environment -g ASF_CL "$VPN"
     tmux set-environment -g ASF_BACKGROUND "cyan"
   else
     tmux set-environment -g NORD_CYAN "cyan"
